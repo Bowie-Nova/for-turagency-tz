@@ -1,0 +1,33 @@
+<?php
+// backup of original test_parser.php
+require 'vendor/autoload.php';
+$app = require_once 'bootstrap/app.php';
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel->bootstrap();
+
+use App\Services\PuppeteerParserService;
+
+$service = new PuppeteerParserService();
+$filters = [
+    'departure_city' => 'Almaty',
+    'destination_country' => 'Turkey',
+    'departure_from' => '2026-04-01',
+    'departure_to' => '2026-04-20',
+    'nights_from' => 5,
+    'nights_to' => 14,
+    'adults' => 2,
+    'children' => 0,
+    'preferences' => []
+];
+
+echo "Calling parseAllOperators with filters:\n";
+print_r($filters);
+
+$result = $service->parseAllOperators($filters);
+
+echo "\n\nResult:\n";
+print_r($result);
+
+echo "\n\nJSON encoded result:\n";
+echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+?>

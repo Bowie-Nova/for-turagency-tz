@@ -1,0 +1,13 @@
+{
+  "name": "tour-parser",
+  "version": "1.0.0",
+  "description": "Puppeteer-based tour operator parser",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.6.1"
+  }
+}
